@@ -2,18 +2,18 @@ import React from 'react';
 import { Metadata } from 'next';
 
 interface Props {
-  params: Promise<{ carId: string }>;
+  params: { carId: string };
 }
 
 export const generateMetadata = async (props: Props): Promise<Metadata> => {
-  const params = await props.params;
+  const { params } = props;
   return {
     title: `Rent a car - Car ${params.carId} details`,
   };
 };
 
-const CarPage = async (props: Props) => {
-  const params = await props.params;
+const CarPage = (props: Props) => {
+  const { params } = props;
   return (
     <>
       <h2>Car detail page</h2>
