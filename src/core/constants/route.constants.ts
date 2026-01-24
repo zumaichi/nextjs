@@ -1,11 +1,11 @@
 export interface Routes {
   root: string;
-  carList: string;
-  car: (cardId: string) => string;
-}
+  houseList: string;
+  house: (houseId: string) => string;
+};
 
 export const routeConstants: Routes = {
-  root: '/',
-  carList: '/cars',
-  car: (cardId: string) => `/cars/${cardId}`,
+  root: "/",
+  houseList: "/houses",
+  house: (houseId: string) => `/houses/${houseId}`,
 };

@@ -3,14 +3,14 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Rent a car - Home',
+  title: 'Casas Rurales - Home',
 };
 
 const RootPage = () => {
   return (
     <>
-      <h2>Hello from Nextjs</h2>
-      <Link href="/cars">Navigate to car list</Link>
+      <h2>Bienvenido a Casas Rurales</h2>
+      <Link href="/houses">Ver casas disponibles</Link>
     </>
   );
 };
