@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Nextjs examples",
   "scripts": {
-    "start": "next dev",
+    "start": "run-p -l start:dev start:api-server",
+    "start:dev": "next dev",
     "build": "rimraf .next && next build",
     "start:prod": "next start -p 8080",
     "start:api-server": "cd api-server && npm run mock-server",

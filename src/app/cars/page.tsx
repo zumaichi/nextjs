@@ -1,23 +1,15 @@
-'use client';
 import React from 'react';
-import { useRouter } from 'next/navigation';
+import { Metadata } from 'next';
+import { CarList, api, mapCarListFromApiToVm } from '#pods/car-list';
 
-const CarListPage = () => {
-  const router = useRouter();
-  const onNavigateBack = () => {
-    router.push('/'); // or router.back()
-  };
+export const metadata: Metadata = {
+  title: 'Rent a car - Car list',
+};
 
-  return (
-    <>
-      <h2>Car list page</h2>
-      <ul>
-        <li>Audi Q8</li>
-        <li>BMW X7</li>
-      </ul>
-      <button onClick={onNavigateBack}>Navigate to home</button>
-    </>
-  );
+const CarListPage = async () => {
+  const carlist = await api.getCarList();
+
+  return <CarList carList={mapCarListFromApiToVm(carlist)} />;
 };
 
 export default CarListPage;
