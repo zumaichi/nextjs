@@ -2,12 +2,10 @@ import React from 'react';
 import { Metadata } from 'next';
 import { api, House, mapHouseListFromApiToVm } from '#pods/house-list';
 
-export async function generateStaticParams() {
-  return [{ houseId: '1' }, { houseId: '2' }, { houseId: '3' }];
-}
+
 
 interface Props {
-  params: { houseId: string };
+  params: Promise<{ houseId: string }>;
 }
 
 export const generateMetadata = async (props: Props): Promise<Metadata> => {
@@ -16,6 +14,10 @@ export const generateMetadata = async (props: Props): Promise<Metadata> => {
     title: `Casa ${params.houseId} detalles`,
   };
 };
+export async function generateStaticParams() {
+  return [{ houseId: '1' }, { houseId: '2' }, { houseId: '3' }];
+}
+
 const HousePage = async (props: Props) => {
   const params = await props.params;
   const houses = await api.getHouseList();

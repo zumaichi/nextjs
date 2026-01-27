@@ -11,3 +11,4 @@ junit.xml
 .next
 .swc
 .env.local
+.prettierrc
