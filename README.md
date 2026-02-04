@@ -1,5 +1,12 @@
 # 03 Boilerplate
 
+se necesitas las siguientes variables de entorno para q el proyecto funcione:
+BASE_API_URL=http://localhost:3001/api
+BASE_PICTURES_URL=http://localhost:3001
+IMAGES_DOMAIN=localhost
+
+inclidas en el archivo .env.local en la raiz del proyecto.
+
 Next.js is unopinionated about how you [organize your project](https://nextjs.org/docs/app/building-your-application/routing/colocation) but it gives you some features to avoid create unnecessary routes like:
 
 - [src directory](https://nextjs.org/docs/app/building-your-application/routing/colocation#src-directory)
@@ -23,7 +30,6 @@ Next.js is unopinionated about how you [organize your project](https://nextjs.or
 - [Material Icons discussion](https://github.com/vercel/next.js/discussions/42881)
 
 - [Module aliases](https://nextjs.org/docs/app/building-your-application/configuring/absolute-imports-and-module-aliases#module-aliases)
-
 
 # About Basefactor + Lemoncode
 
