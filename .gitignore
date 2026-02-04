@@ -10,5 +10,4 @@ junit.xml
 .env
 .next
 .swc
-.env.local
 .prettierrc
