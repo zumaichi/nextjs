@@ -1,16 +1,21 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
+import { useBooking } from '#common/hooks/useBooking';
 
 interface Props {
+  houseId: string;
   initialBooked?: boolean;
 }
 
-export const BookingButton: React.FC<Props> = ({ initialBooked = false }) => {
-  const [isBooked, setIsBooked] = useState(initialBooked);
+export const BookingButton: React.FC<Props> = ({
+  houseId,
+  initialBooked = false,
+}) => {
+  const { isBooked, toggleBooking } = useBooking(houseId, initialBooked);
 
   const handleBooking = () => {
-    setIsBooked(!isBooked);
-    alert(isBooked ? 'Reserva cancelada' : 'Casa reservada exitosamente');
+    toggleBooking();
+    alert(!isBooked ? 'Casa reservada exitosamente' : 'Reserva cancelada');
   };
 
   return (

@@ -38,7 +38,7 @@ const HousePage = async (props: Props) => {
         alt={house?.name}
         style={{ maxWidth: '400px' }}
       />
-      <BookingButton initialBooked={false} />
+      <BookingButton houseId={params.houseId} initialBooked={house?.isBooked || false} />
     </div>
   );
 };

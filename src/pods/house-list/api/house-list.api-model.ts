@@ -4,7 +4,7 @@ export interface Review {
   date: string;
   comment: string;
   rating: number;
-};
+}
 
 export interface House {
   id: string;
@@ -20,5 +20,5 @@ export interface House {
   image: string;
   amenities: string[];
   reviews: Review[];
-};
-
+  isBooked: boolean;
+}

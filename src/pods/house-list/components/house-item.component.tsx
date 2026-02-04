@@ -1,9 +1,10 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { routeConstants } from '#core/constants';
 import { House } from '../house-list.vm';
 import classes from './house-item.module.css';
+import { useBooking } from '#common/hooks/useBooking';
 
 interface Props {
   house: House;
@@ -11,13 +12,13 @@ interface Props {
 
 export const HouseItem: React.FC<Props> = (props) => {
   const { house } = props;
-  const [isBooked, setIsBooked] = useState(house.isBooked || false);
+  const { isBooked, toggleBooking } = useBooking(house.id, house.isBooked);
 
   const handleBooking = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setIsBooked(!isBooked);
-    alert(isBooked ? 'Reserva cancelada' : 'Casa reservada exitosamente');
+    toggleBooking();
+    alert(!isBooked ? 'Casa reservada exitosamente' : 'Reserva cancelada');
   };
 
   return (
