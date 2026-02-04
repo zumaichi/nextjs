@@ -15,7 +15,7 @@ const HousesLayout = (props: Props) => {
         <Link href="/" className={classes.link}>
           <Image src="/home-logo.png" alt="logo" width="32" height="23" />
         </Link>
-        <h1 className={classes.title}>Casas Rurales</h1>
+        <h1 className={classes.title}>Casas Rurales Limoneras</h1>
       </nav>
       <main className={classes.content}>{children}</main>
     </>

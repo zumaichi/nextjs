@@ -1,8 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { api, House, mapHouseListFromApiToVm } from '#pods/house-list';
+import { api } from '#pods/house-list';
+import { BookingButton } from './booking-button';
 
-
+export const dynamic = 'force-dynamic';
 
 interface Props {
   params: Promise<{ houseId: string }>;
@@ -10,8 +11,11 @@ interface Props {
 
 export const generateMetadata = async (props: Props): Promise<Metadata> => {
   const params = await props.params;
+  const houses = await api.getHouseList();
+  const house = houses.find((h) => h.id === params.houseId);
+
   return {
-    title: `Casa ${params.houseId} detalles`,
+    title: `Casa ${house?.name || params.houseId} detalles`,
   };
 };
 export async function generateStaticParams() {
@@ -34,6 +38,7 @@ const HousePage = async (props: Props) => {
         alt={house?.name}
         style={{ maxWidth: '400px' }}
       />
+      <BookingButton initialBooked={false} />
     </div>
   );
 };
